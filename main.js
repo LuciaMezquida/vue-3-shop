@@ -6,7 +6,7 @@ const app = Vue.createApp({
       description: 'Your next favourite pair of socks',
       image: './assets/images/socks_green.jpeg',
       urlShop: 'https://www.vuevixens.org/',
-      inStock: false,
+      inStock: true,
       inventory: 10,
       details: ['50% cotton', '30% wool', '20% polyester'],
       variants: [
