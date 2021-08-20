@@ -11,38 +11,15 @@
     <div id="app">
       <div class="nav-bar"></div>
       <div class="cart" @click='addToCart'>Cart({{cart}})</div>
-      
-      <div class="product-display">
-        <div class="product-container">
-          <div class="product-image">
-            <img :src="image" :alt="product" :class="{'out-of-stock-img' : !inStock}">
-          </div>
-          <div class="product-info">
-            <h1>{{ title }}</h1>
-            <a :href="urlShop">More info here</a>
-            <p v-if='inStock >= 10'>In Stock</p>
-            <p v-else-if='inStock < 10 && inStock > 0'>Almost sold out!</p>
-            <p v-else>Out of Stock</p>
-            <ul>
-              <li v-for='detail in details'>{{detail}}</li>
-            </ul>
-            <div 
-              class="color-circle" 
-              v-for='(variant, index) in variants' 
-              :key='variant.id' 
-              @mouseover='updateVariant(index)' 
-              :style='{backgroundColor: variant.color}'>
-            </div>
-
-          </div>
-          <button class="button" @click='addToCart'>+</button>
-          <button class="button" @click='removeFromCart'>-</button>
-        </div>
-      </div>
+      <product-display premium="premium"></product-display>
     </div>
 
     <!-- Import App -->
     <script src="./main.js"></script>
+    <!-- Import Component -->
+    <script src="./components/ProductDisplay.js"></script>
+    <!-- Import Component -->
+    <script src="./components/ProductDetails.js"></script>
     <!-- Mount App -->
     <script>
       const mountedApp = app.mount('#app')
